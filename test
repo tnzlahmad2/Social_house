@@ -1,0 +1,205 @@
+
+/* to replace first letter with case */
+
+join_str = function(str){
+    
+  return str.charAt(0).toUpperCase() + str.slice(1);
+ }
+ 
+ console.log(join_str('robin Singh from USA.'))
+
+ /* captilize first letter of all world */
+
+ function captilize_first_letter(str) {
+  return str.replace(/\w\S*/g, function(txt)
+  {return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+
+}
+
+console.log(captilize_first_letter('hello world'))
+
+
+/* swapcase */
+
+swapcase = function swapcase(str) {
+  return str.replace(/([a-z]+)|([A-Z]+)/g, function(match, chr) {
+         return chr ? match.toUpperCase() : match.toLowerCase();
+     });
+ }
+
+console.log(swapcase('abaA'))
+
+
+/* count a`letter how many time  */
+
+const count_same_chrarcter = function(str){
+       
+  var arr = {}
+  
+  for (var i = 0; i < str.length; i++) {
+    
+    if (Object.keys(arr).includes(str[i])) {
+      
+      arr[str[i]] = arr[str[i]] + 1
+      
+      continue ;
+  }
+   arr[str[i]] = 1
+  }
+  return arr
+}
+
+
+console.log(count_same_chrarcter('ahkasgha'))
+
+
+/* largest word in string */
+
+const str = 'hello worlds'
+  
+longest_latter_in_string = function (str) {
+    str = str.match(/[a-zA-Z0-9]+/gi);
+    
+    let largest_latter = '' ;
+    
+    for (var i = 0; i < str.length; i++) {
+      if(str[i].length > largest_latter.length){largest_latter=str[i]}
+    }
+    return largest_latter ;
+}
+
+console.log(longest_latter_in_string(str))
+
+/* longest world with sorting method */
+
+function longest(str){
+ 
+  str = str.split(" ")
+ 
+  return str.sort((a, b) => b.length - a.length)[0]
+}
+  
+  
+console.log(longest("Hello guys this is geeksforgeeks where students learn programming"))
+                    
+
+/* change vowel with next letter */
+
+var vowel = ['a' , 'e' , 'i' , 'o' , 'u']
+   
+   var str = 'hello world'
+   
+  const newstr = str.split('').map(x=> vowel.indexOf(x.toLowerCase()) >=0 ?
+  String.fromCharCode(x.charCodeAt()+1) :x).join('')
+   
+   console.log(newstr)
+   
+   /* remove same letter from string */
+
+   const str = 'jhsgfsjgfjsdgfkjsgfjsdhgfkjh'
+   
+   remove_same_letter = function (string) {
+    return   string.split('').filter((item,pos,self) => {
+         return self.indexOf(item) == pos.
+       })
+   }
+   console.log(remove_same_letter(str))
+
+
+   /* remove same value from array  */
+
+   const arr = [1,1,2,3,4,3,2,4,6,8]
+   
+   remove_same_num = function (array){
+     return array.filter((item,pos,self)=> {return self.indexOf(item) == pos ;})
+   }
+   
+   console.log(remove_same_num(arr))
+
+
+   /* aik array wy jidy wich sari value ne alpha numeric v 10 tu kaam jeria value ny ona nu 10 nall multiply os tu zyada value ne ona ny 2 nal multiply */
+
+   const array = [ 1 , 'ahm' , 9 , 'id' , true , 22 , '3']
+   
+   const numeric_value = array.filter(value =>typeof value ==='number')
+   
+   const numeric_array = numeric_value.map(multiply_number)
+   
+   function multiply_number(num) {
+     
+      if( num < 10 )
+         { return num * 10 ;}
+       
+      if ( num > 10)
+         {  return num * 2 ; }
+         
+  }
+   console.log(numeric_array)
+
+  //  object 
+  const personal_info = {
+    Firstname: 'tanzeel' ,
+    LastName: 'ahmad' ,
+    postalCode: 3456 ,
+    contact: 923127156170,
+    address:{
+      city: 'sialkot' ,
+      tehsil: 'pasrur' ,
+      village: 'kot kalal',
+      postalAddress: 'P.O BOX KHAS KOT KALAL'
+    },
+    technicalSkill:{
+       skill_1: 'IMS' ,
+       skill_2: 'figma Design',
+       skill_3: 'wordpress' ,
+       skill_4: 'js'
+       
+    },
+    // fullName: function () {
+    //     return (this.Firstname + ' ' + this.LastName).toUpperCase();
+    // },
+    
+    fullAddress: function(){
+      return this.address.city + " " + this.address.tehsil+ " " + this.address.village
+    }
+   
+  }
+
+  // check wheater the object is empty 
+
+  const data = {
+    name : 1 ,
+    rollno: 234
+  }
+  
+ object_blnk = function (obj){
+   return Object.keys(obj).length === 0 ;
+ }
+ 
+ console.log(object_blnk(data))
+
+
+
+ let programming = {
+  languages: ["JavaScript", "Python", "Ruby"],
+  isChallenging: true,
+  isRewarding: true,
+  difficulty: 8,
+  
+}
+
+programming.languages.push('GO')
+programming.difficulty = 7 ;
+delete programming.isRewarding
+programming.isFun = true
+
+
+for (var i = 0; i < programming.languages.length; i++) {
+ console.log(programming.languages[i])
+}
+
+console.log(Object.keys(programming))
+console.log(Object.values(programming))
+console.log(Object.entries(programming))
+
+console.log(programming)
